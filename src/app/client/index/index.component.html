@@ -1,0 +1,31 @@
+<div class="container">
+  <br>
+    <h2>CRUD CLIENTES</h2>
+   
+    <a href="#" routerLink="/client/create/" class="btn btn-success">Agregar cliente</a>
+     
+    <br>
+    <br>
+    <table class="table table-bordered">
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Email</th>
+        <th>DPI</th>
+        <th width="220px">Opciones</th>
+      </tr>
+      <tr *ngFor="let client of clients">
+        <td>{{ client.client_id }}</td>
+        <td>{{ client.name }}</td>
+        <td>{{ client.last_name }}</td>
+        <td>{{ client.customer_email }}</td>
+        <td>{{ client.dpi }}</td>
+        <td>
+          <button type="button" (click)="viewClient(client.client_id)" class="btn btn-primary">Ver</button>
+          <button type="button" (click)="editClient(client.client_id)" class="btn btn-info">Editar</button>
+          <button type="button" (click)="deleteClient(client.client_id)" class="btn btn-danger">Borrar</button>
+        </td>
+      </tr>
+    </table>
+ </div>

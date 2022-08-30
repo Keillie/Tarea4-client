@@ -1,0 +1,72 @@
+<div class="container">
+    <h2>Agregar cliente</h2>
+    <br>
+    <a href="#" routerLink="/client/index" class="btn btn-primary">Regresar</a>
+
+    <br>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="tamano">
+   
+        <div class="form-group">
+            <label for="name">Nombre:</label>
+            <input
+                formControlName="name"
+                id="name"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+                <div *ngIf="f['name'].errors && f['name'].errors['required']">El nombre es obligatorio.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="last_name">Apellido:</label>
+            <input
+                formControlName="last_name"
+                id="last_name"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['last_name'].touched && f['last_name'].invalid" class="alert alert-danger">
+                <div *ngIf="f['last_name'].errors && f['last_name'].errors['required']">El apellido es obligatorio.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="customer_email">Correo electronico:</label>
+            <input
+                formControlName="customer_email"
+                id="customer_email"
+                type="email"
+                class="form-control">
+            <div *ngIf="f['customer_email'].touched && f['customer_email'].invalid" class="alert alert-danger">
+                <div *ngIf="f['customer_email'].errors && f['customer_email'].errors['required']">El correo electronico es obligatorio.</div>
+            </div>
+        </div>
+   
+        <div class="form-group">
+            <label for="address">Direccion:</label>
+            <textarea
+                formControlName="address"
+                id="address"
+                type="text"
+                class="form-control">
+            </textarea>
+            <div *ngIf="f['address'].touched && f['address'].invalid" class="alert alert-danger">
+                <div *ngIf="f['address'].errors && f['address'].errors['required']">La direccion es obligatoria.</div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="dpi">DPI:</label>
+            <input
+                formControlName="dpi"
+                id="dpi"
+                type="text"
+                class="form-control">
+            <div *ngIf="f['dpi'].touched && f['dpi'].invalid" class="alert alert-danger">
+                <div *ngIf="f['dpi'].errors && f['dpi'].errors['required']">El DPI es obligatorio.</div>
+            </div>
+        </div>
+        <br>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Guardar</button>
+    </form>
+</div>
